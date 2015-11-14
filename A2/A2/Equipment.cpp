@@ -29,7 +29,7 @@ public:
     TreadMill(string name) : Equipment(), m_name(name){}
     TreadMill(const TreadMill& tread) : Equipment(tread){m_name = tread.m_name;}
     Equipment* clone() {return new TreadMill(*this);}
-    void display() const {cout << m_name << endl;}
+    void display() const {cout << "Treadmill: " << m_name << endl;}
 private:
     string m_name;
 };
@@ -40,7 +40,7 @@ public:
     Bike(string name) : Equipment(), m_name(name){}
     Bike(const Bike& bike) : Equipment(bike){m_name = bike.m_name;}
     Equipment* clone() {return new Bike(*this);}
-    void display() const {cout << m_name << endl;}
+    void display() const {cout << "Bike: " << m_name << endl;}
 private:
     string m_name;
 };
@@ -50,8 +50,8 @@ class EquipmentManager
 public:
     EquipmentManager()
     {
-        m_gymTable[treadmill] = new TreadMill::TreadMill("treadmill 1");
-        m_gymTable[bike] = new Bike::Bike("bike 1");
+        m_gymTable[treadmill] = new TreadMill::TreadMill("treadmill");
+        m_gymTable[bike] = new Bike::Bike("bike");
     }
     ~EquipmentManager()
     {
