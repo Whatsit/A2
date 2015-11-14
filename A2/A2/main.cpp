@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include "Character.hpp"
+#include "Equipment.cpp"
 
 using namespace std;
 
@@ -22,8 +23,12 @@ int main(int argc, const char * argv[]) {
     string name;
     string command;
     
+    EquipmentManager* eManager = new EquipmentManager();
+    
+    
     while (true) {
         cout << endl << "ENTER COMMAND> ";
+        cin >> command;
         cout << command << endl;
         if (command == "exit") {
             break;
@@ -32,7 +37,18 @@ int main(int argc, const char * argv[]) {
             cout << helpStr;
         }
         else if (command == "create") {
+            string type;
             cout << "create has been called" << endl;
+
+            Equipment* pEquipment;
+            pEquipment = eManager->createEquipment(treadmill);
+            pEquipment->display();
+            delete pEquipment;
+            
+            pEquipment = eManager->createEquipment(bike);
+            pEquipment->display();
+            delete pEquipment;
+            
         }
         else if (command == "load") {
             cout << command << endl;
@@ -44,6 +60,7 @@ int main(int argc, const char * argv[]) {
             cout << "command not recognized" << endl;
         }
     }
+    delete eManager;
     
     return 0;
 }

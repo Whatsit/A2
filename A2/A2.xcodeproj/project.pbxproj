@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94E722281BF65ED100F97395 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94E722271BF65ED100F97395 /* main.cpp */; };
 		94E722361BF660D600F97395 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94E722341BF660D600F97395 /* Character.cpp */; };
+		94E7223B1BF6E74700F97395 /* Equipment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94E722391BF6E74700F97395 /* Equipment.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		94E722271BF65ED100F97395 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		94E722341BF660D600F97395 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
 		94E722351BF660D600F97395 /* Character.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Character.hpp; sourceTree = "<group>"; };
+		94E722391BF6E74700F97395 /* Equipment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Equipment.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				94E722271BF65ED100F97395 /* main.cpp */,
 				94E722341BF660D600F97395 /* Character.cpp */,
 				94E722351BF660D600F97395 /* Character.hpp */,
+				94E722391BF6E74700F97395 /* Equipment.cpp */,
 			);
 			path = A2;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E7223B1BF6E74700F97395 /* Equipment.cpp in Sources */,
 				94E722281BF65ED100F97395 /* main.cpp in Sources */,
 				94E722361BF660D600F97395 /* Character.cpp in Sources */,
 			);
@@ -243,6 +247,7 @@
 				94E7222D1BF65ED100F97395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
