@@ -9,65 +9,81 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "Character.hpp"
 #include "Equipment.cpp"
 
 using namespace std;
 
+/**
+ helpStr: Global variable used for help command.
+ */
 const string helpStr = "Commands::\n"\
-                        "exit\n"\
-                        "create\n"\
-                        "help\n";
+                        "exit       -- close program\n"\
+                        "create     -- create a new object\n"\
+                        "show       -- show created objects\n"\
+                        "load       -- load from file\n"\
+                        "save       -- save to file\n"\
+                        "help       -- lists these commands\n";
 
 int main(int argc, const char * argv[]) {
+    /**
+     main(): Display's command options on the command line and
+     excepts inputs from the user.
+     */
+    string name;                    // holds name of inctance
+    string command;                 // holds user commands
+    list<Equipment*> eqList;        // list to hold clones
+    list<Equipment*>::iterator it;  // iterator for list
     
-    string name;
-    string command;
-    list<Equipment*> eqList;
-    list<Equipment*>::iterator it;
-    
+    // create Equipment manager to help create clones
     EquipmentManager* eManager = new EquipmentManager();
-    typedef map< eqType, Equipment* >::iterator it_type;
     
+    // main command loop
     while (true) {
         cout << endl << "ENTER COMMAND> ";
         cin >> command;
-        if (command == "exit") {
+        if (command == "exit") {            // exit program
             break;
         }
-        else if (command == "help") {
+        else if (command == "help") {       // display help
             cout << helpStr;
         }
-        else if (command == "create") {
+        else if (command == "create") {     // create a clone
             eqType type;
-            cout << "Enter the type: ";
-            cin >> command;
-            
+            cout << "COMMAND>Enter the type and name(ex:bike 1)> ";
+            cin >> command >> name;
+            // select type
             if (command == "treadmill") { type = treadmill;}
-            else {type = bike;}
-            
+            else if (command == "bike") {type = bike;}
+            else {cout << "ERROR::Type not recognized";}
+            // create clone and add to list
             Equipment* pEquipment;
             pEquipment = eManager->createEquipment(type);
+            pEquipment->setName(name);
             eqList.push_back(pEquipment);
             
         }
-        else if (command == "show") {
+        else if (command == "show") {       // print clones in list
             for(it = eqList.begin(); it!=eqList.end(); it++)
             {
                 (*it)->display();
             }
         }
-        else if (command == "load") {
+        else if (command == "load") {       // load list of clones
             cout << command << endl;
         }
-        else if (command == "save") {
+        else if (command == "save") {       // save list of clones
             cout << command << endl;
         }
-        else {
-            cout << "command not recognized" << endl;
+        else {                              // bad input
+            cout << "command not recognized::Try typing> help" << endl;
         }
     }
-    delete eManager;
+    // clean up memory
+    for(it = eqList.begin(); it!=eqList.end(); it++)
+    {
+        delete *it;
+    }
+    delete eManager;                        // delete manager
     
-    return 0;
+    return 0;                               // exit
 }
