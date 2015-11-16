@@ -6,6 +6,9 @@
 //  Copyright © 2015 1. All rights reserved.
 //
 
+#ifndef Equipment_cpp
+#define Equipment_cpp
+
 #include <iostream>
 #include <string>
 #include <map>
@@ -83,4 +86,6 @@ public:
 private:
     map<eqType, Equipment*> m_gymTable;
 };
+
+#endif
 

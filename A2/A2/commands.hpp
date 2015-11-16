@@ -13,13 +13,18 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "Equipment.cpp"
 
 using namespace std;
 
 class Commands
 {
 public:
-    void help() const;
+    string help() const;
+    int deleteList(list<Equipment*>&);
+    int showList(list<Equipment*>&) const;
+    void popList(list<Equipment*>&);
+    void run();
 private:
     const string helpStr = "Commands::\n"\
     "exit       -- close program\n"\
