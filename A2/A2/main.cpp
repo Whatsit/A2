@@ -16,6 +16,7 @@ using namespace std;
 /**
  helpStr: Global variable used for help command.
  */
+
 const string helpStr = "Commands::\n"\
                         "exit       -- close program\n"\
                         "create     -- create a new object\n"\
@@ -51,10 +52,12 @@ int main(int argc, const char * argv[]) {
             eqType type;
             cout << "COMMAND>Enter the type and name(ex:bike 1)> ";
             cin >> command >> name;
+            
             // select type
             if (command == "treadmill") { type = treadmill;}
             else if (command == "bike") {type = bike;}
             else {cout << "ERROR::Type not recognized";}
+            
             // create clone and add to list
             Equipment* pEquipment;
             pEquipment = eManager->createEquipment(type);

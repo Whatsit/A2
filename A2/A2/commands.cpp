@@ -7,3 +7,8 @@
 //
 
 #include "commands.hpp"
+
+void Commands::help() const
+{
+    cout << helpStr;
+}
