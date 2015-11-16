@@ -10,5 +10,24 @@
 #define commands_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include <string>
+#include <list>
+
+using namespace std;
+
+class Commands
+{
+public:
+    void help() const;
+private:
+    const string helpStr = "Commands::\n"\
+    "exit       -- close program\n"\
+    "create     -- create a new object\n"\
+    "show       -- show created objects\n"\
+    "load       -- load from file\n"\
+    "save       -- save to file\n"\
+    "help       -- lists these commands\n";
+};
 
 #endif /* commands_hpp */
