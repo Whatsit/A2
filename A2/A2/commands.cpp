@@ -42,9 +42,26 @@ int Commands::showList(list<Equipment*>& i) const
     return 0;
 }
 
-void popList(list<Equipment*>& i)
+void Commands::popList(list<Equipment*>& i)
 {
-    i.pop_back();
+    if (!i.empty()) {
+        i.pop_back();
+    }
+}
+
+void Commands::createType(string command, string name, EquipmentManager* eManager, list<Equipment*>& eqList)
+{
+    eqType type;
+    // select type
+    if (command == "treadmill") { type = treadmill;}
+    else if (command == "bike") {type = bike;}
+    else {cout << "ERROR::Type not recognized";}
+    
+    // create clone and push onto list
+    Equipment* pEquipment;
+    pEquipment = eManager->createEquipment(type);
+    pEquipment->setName(name);
+    eqList.push_back(pEquipment);
 }
 
 void Commands::run()
@@ -56,7 +73,6 @@ void Commands::run()
     string name;                    // holds name of inctance
     string command;                 // holds user commands
     list<Equipment*> eqList;        // list to hold clones
-    //list<Equipment*>::iterator it;  // iterator for list
     
     // create Equipment manager to help create clones
     EquipmentManager* eManager = new EquipmentManager();
@@ -72,23 +88,10 @@ void Commands::run()
             cout << help();
         }
         else if (command == "create") {     // create a clone
-            eqType type;
-            cout << "COMMAND>Enter the type and name(ex:bike 1)> ";
             cin >> command >> name;
-            
-            // select type
-            if (command == "treadmill") { type = treadmill;}
-            else if (command == "bike") {type = bike;}
-            else {cout << "ERROR::Type not recognized";}
-            
-            // create clone and add to list
-            Equipment* pEquipment;
-            pEquipment = eManager->createEquipment(type);
-            pEquipment->setName(name);
-            eqList.push_back(pEquipment);
-            
+            createType(command, name, eManager, eqList);
         }
-        else if (command == "pop") {
+        else if (command == "pop") {        // remove last type from list
             popList(eqList);
         }
         else if (command == "show") {       // print clones in list
