@@ -23,8 +23,9 @@ int main(int argc, const char * argv[]) {
      main(): Display's command options on the command line and
      excepts inputs from the user.
      */
+    cout << "starting" << endl;
     Commands com;
     com.run();
-    
+    cout << endl << "done" << endl;
     return 0;                               // exit
 }
