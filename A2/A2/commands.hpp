@@ -24,14 +24,14 @@ public:
     int deleteList(list<Equipment*>&);
     int showList(list<Equipment*>&) const;
     void popList(list<Equipment*>&);
+    void createType(string, string, EquipmentManager*, list<Equipment*>&);
     void run();
 private:
     const string helpStr = "Commands::\n"\
     "exit       -- close program\n"\
     "create     -- create a new object\n"\
     "show       -- show created objects\n"\
-    "load       -- load from file\n"\
-    "save       -- save to file\n"\
+    "pop        -- remove last type entered"\
     "help       -- lists these commands\n";
 };
 
