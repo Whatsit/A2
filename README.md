@@ -1,6 +1,6 @@
 # A2
 SENG330
-
+Ryan Hotte
 Assignment 2
 
 Prototypes and test cases
