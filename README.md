@@ -1,2 +1,10 @@
 # A2
-SENG330A2
+SENG330
+
+Assignment 2
+
+Prototypes and test cases
+
+This is only to deminstrate the use of prototypes for an assignment.
+
+INSTALL.txt contains information on how to build and setup.

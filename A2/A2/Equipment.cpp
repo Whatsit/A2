@@ -28,12 +28,13 @@ public:
     virtual ~Equipment() {}
     virtual void display() const = 0;
     virtual void setName(string) = 0;
+    virtual string getType() = 0;
 };
 
 class TreadMill : public Equipment
 {
 /**
- Treadmill sub class of Equipment
+ Treadmill sub class of Equipment\n
  has a type and name
  */
 public:
@@ -42,6 +43,7 @@ public:
     Equipment* clone() {return new TreadMill(*this);}
     void display() const {cout << "Treadmill: " << m_name << endl;}
     void setName(string name) {m_name = name;}
+    string getType() {return "treadmill";}
 private:
     string m_name;
 };
@@ -49,7 +51,7 @@ private:
 class Bike : public Equipment
 {
 /**
- Bike sub class of Equipment
+ Bike sub class of Equipment\n
  has a type and name
  */
 public:
@@ -58,6 +60,7 @@ public:
     Equipment* clone() {return new Bike(*this);}
     void display() const {cout << "Bike: " << m_name << endl;}
     void setName(string name) {m_name = name;}
+    string getType() {return "bike";}
 private:
     string m_name;
 };
@@ -65,7 +68,7 @@ private:
 class EquipmentManager
 {
 /**
- EquipmentManager
+ EquipmentManager\n
  used to create and manage clones
  */
 public:
