@@ -14,17 +14,17 @@ string test = "Commands::\n"\
 "exit       -- close program\n"\
 "create     -- create a new object\n"\
 "show       -- show created objects\n"\
-"load       -- load from file\n"\
-"save       -- save to file\n"\
+"pop        -- remove last type entered"\
 "help       -- lists these commands\n";
-// my first fancy addition test
-TEST (A2, Addition)
-{
-    // equal to 20
-    EXPECT_EQ(10 + 10, 20);
-    
-}
 
+/**
+ Test cases:\n
+ Help           --test help finction\n
+ Show           --test showList function\n
+ DeleteList     --test deleteList function\n
+ Pop            --test pop function\n
+ Create         --test createType function\n
+ */
 TEST(A2, Help)
 {
     Commands cam;
@@ -60,6 +60,31 @@ TEST(A2, DeleteList)
     
     EXPECT_TRUE(eqList.empty());
     
+}
+
+TEST(A2, Pop)
+{
+    Commands cam;
+    EquipmentManager* eManager = new EquipmentManager();
+    list<Equipment*> eqList;        // list to hold clones
+    
+    Equipment* pEquipment;
+    pEquipment = eManager->createEquipment(bike);
+    pEquipment->setName("1");
+    eqList.push_back(pEquipment);
+    EXPECT_FALSE(eqList.empty());
+    cam.popList(eqList);
+    EXPECT_TRUE(eqList.empty());
+}
+
+TEST(A2, Create)
+{
+    Commands cam;
+    EquipmentManager* eManager = new EquipmentManager();
+    list<Equipment*> eqList;        // list to hold clones
+    cam.createType("bike", "12", eManager, eqList);
+    list<Equipment*>::iterator t = eqList.begin();
+    EXPECT_EQ("bike", (*t)->getType());
 }
 
 

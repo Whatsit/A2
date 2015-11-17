@@ -19,6 +19,9 @@ using namespace std;
 
 class Commands
 {
+/**
+ Header class for all commands avalible to user.
+ */
 public:
     string help() const;
     int deleteList(list<Equipment*>&);
@@ -28,11 +31,12 @@ public:
     void run();
 private:
     const string helpStr = "Commands::\n"\
-    "exit       -- close program\n"\
-    "create     -- create a new object\n"\
-    "show       -- show created objects\n"\
-    "pop        -- remove last type entered"\
-    "help       -- lists these commands\n";
+    "exit                   -- close program\n"\
+    "create (Type) (name)   -- create a new object given type<bike/treadmill> \n\
+                            and inctance name\n"\
+    "show                   -- show created objects\n"\
+    "pop                    -- remove last type entered\n"\
+    "help                   -- lists these commands\n";
 };
 
 #endif /* commands_hpp */

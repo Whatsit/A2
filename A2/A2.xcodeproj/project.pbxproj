@@ -326,6 +326,7 @@
 				94633D471BF997A70058808A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94E7221F1BF65ED100F97395 /* Build configuration list for PBXProject "A2" */ = {
 			isa = XCConfigurationList;
