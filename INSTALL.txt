@@ -2,3 +2,20 @@ A2
 PROCCESS FOR INSTALLING AND BUILDING CODE
 
 TOOLS NEEDED
+
+- up to date c++ compiler and Xcode.
+- Ignorer to run tests user needs Google testing
+framework installed
+
+Build
+
+- Start by navigating to the Xcode config file in the A2 folder and open it
+in Xcode.
+- insure target is set to A2 and not Tests and run build, code should compile
+and run.
+
+- for test select Tests as target and run build again.
+
+- located at /A2/build/Release/ is a precompiled unix exe with the latest build
+of the program that should run on most systems if you don’t want to build the
+program yourself.

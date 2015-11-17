@@ -14,13 +14,10 @@
 
 using namespace std;
 
-/**
- helpStr: Global variable used for help command.
- */
 
 int main(int argc, const char * argv[]) {
     /**
-     main(): Display's command options on the command line and
+     main(): Display's command options on the command line and\n
      excepts inputs from the user.
      */
     cout << "starting" << endl;

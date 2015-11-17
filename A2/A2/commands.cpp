@@ -10,11 +10,19 @@
 
 string Commands::help() const
 {
+    /**
+     help(): Peramiters = None\n
+     displays help options to user.
+     */
     return helpStr;
 }
 
 int Commands::deleteList(list<Equipment*>& i)
 {
+    /**
+     deleteList(): Peramiters = refrence to list\n
+     deletes all eliments in list to clear up memory.
+     */
     list<Equipment*>::iterator t;
     for(t = i.begin(); t!=i.end(); t++)
     {
@@ -29,6 +37,10 @@ int Commands::deleteList(list<Equipment*>& i)
 
 int Commands::showList(list<Equipment*>& i) const
 {
+    /**
+     showList(): Peramiters = refrence to list\n
+     moves through list and calls each elements display function.
+     */
     int a = 0;
     list<Equipment*>::iterator t;
     for(t = i.begin(); t!=i.end(); t++)
@@ -44,6 +56,10 @@ int Commands::showList(list<Equipment*>& i) const
 
 void Commands::popList(list<Equipment*>& i)
 {
+    /**
+     popList(): Peramiters = refrence to list\n
+     removes last element in list.
+     */
     if (!i.empty()) {
         i.pop_back();
     }
@@ -51,6 +67,10 @@ void Commands::popList(list<Equipment*>& i)
 
 void Commands::createType(string command, string name, EquipmentManager* eManager, list<Equipment*>& eqList)
 {
+    /**
+     createType(): Peramiters = string, string, EqipmentMaanager pointer, refrence to list\n
+     creates a new clone elemete of given tipe, sets name, and pushes element into given list.
+     */
     eqType type;
     // select type
     if (command == "treadmill") { type = treadmill;}
@@ -67,8 +87,9 @@ void Commands::createType(string command, string name, EquipmentManager* eManage
 void Commands::run()
 {
     /**
-     main(): Display's command options on the command line and
-     excepts inputs from the user.
+     run(): Peramiters = None\n
+     Display's command options on the command line and excepts inputs from the user.
+     Calls correct commands functions given input.
      */
     string name;                    // holds name of inctance
     string command;                 // holds user commands
@@ -101,8 +122,7 @@ void Commands::run()
             cout << "command not recognized::Try typing> help" << endl;
         }
     }
-    // clean up memory
-    deleteList(eqList);
+    deleteList(eqList);                     // clean up memory
 
     delete eManager;                        // delete manager
 }
